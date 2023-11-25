@@ -2,6 +2,8 @@
 // paragraph from https://en.wikipedia.org/wiki/Pumpkin and pasting it as our module-level
 // documentation. Hint: Use inner-documentation comments.
 //
+//! A pumpkin, in English-language vernacular, is a cultivated winter squash in the genus Cucurbita.
+//! The term is most commonly applied to round, orange-colored squash varieties, though it does not possess a scientific definition and may be used in reference to many different squashes of varied appearance
 // Once you've got the documentation here, run `cargo doc --no-deps --open` and take a look!
 
 // 2. What about an image!? Add an image of a pumpkin to the end of the module-level documentation.
