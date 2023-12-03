@@ -25,11 +25,11 @@ fn main() {
     // Hint 1: You'll need .iter_mut() -- bonus points if you use the shorter, syntactic sugar form!
     // Hint 2: `x` will be a mutable reference, so remember to dereference it to use it
 
-    // let mut numbers = vec![1, 2, 3, 4];
-    // for x in ... {
-    //     ... // multiply the value by 3 via the mutable reference x
-    // }
-    // println!("{:?}", numbers); // should print [3, 6, 9, 12]
+    let mut numbers = vec![1, 2, 3, 4];
+    for x in numbers.iter_mut() {
+        *x *= 3; // multiply the value by 3 via the mutable reference x
+    }
+    println!("{:?}", numbers); // should print [3, 6, 9, 12]
 
     // 4. Uncomment the code below.  Take the vector of words and
     // - Convert the vector into an iterator with .into_iter()
