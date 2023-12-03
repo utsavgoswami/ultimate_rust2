@@ -7,9 +7,9 @@ pub enum Cake {
     Spice,
 }
 
-impl From<Party> for Cake {
-    fn from(value: Party) -> Self {
-        value.cake
+impl From<&Party> for Cake {
+    fn from(value: &Party) -> Self {
+        value.cake.clone()
     }
 }
 
@@ -105,13 +105,16 @@ fn main() {
     // - Implement `From<Party> for Cake` so that the function call below works.
     //
 
-    smell_cake(party);
+    smell_cake(&party);
 
     // Challenge 2: Implement `From<&Party> for Cake` so that you can smell your cake without
     // consuming it. Change the code above to pass in a &party. Then uncomment and run the code
     // below. After all, you want to smell your cake and eat it, too!
 
-    // println!("Yum! I'm eating this cake: {:?}. Oops, I dropped it on the floor.", party.cake);
+    println!(
+        "Yum! I'm eating this cake: {:?}. Oops, I dropped it on the floor.",
+        party.cake
+    );
     // drop(cake);
 }
 
