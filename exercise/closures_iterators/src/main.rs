@@ -6,19 +6,19 @@ fn main() {
     // number multiplied by itself), and assign the closure to the "square" variable. Then run the
     // code and make sure it works.
 
-    // let square = ...
-    // println!("5 squared is {}", square(5));
+    let square = |x: i32| {x * x};
+    println!("5 squared is {}", square(5));
 
     // 2. Uncomment the code below.  Finish the .map() iterator adaptor call by passing it a closure
     // which takes a tuple of two integers as a parameter, and returns a tuple with the first
     // integer incremented by 1, and the second integer left alone.  For example, if given the input
     // (0, 1), it should return (1, 1). Run the code and make sure it works.
 
-    // let pairs = vec![(0, 1), (2, 3), (4, 5)];
-    // pairs
-    //     .into_iter()
-    //     .map( ... )
-    //     .for_each(|t| println!("{:?}", t));
+    let pairs = vec![(0, 1), (2, 3), (4, 5)];
+    pairs
+        .into_iter()
+        .map(|(x, y)| (x + 1, y))
+        .for_each(|t| println!("{:?}", t));
 
     // 3. Uncomment the code below. There is a mutable vector named `numbers`. Use an iterator over
     // mutable references to multiply each of the values in `numbers` by 3.
