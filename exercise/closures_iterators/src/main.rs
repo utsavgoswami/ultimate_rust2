@@ -6,7 +6,7 @@ fn main() {
     // number multiplied by itself), and assign the closure to the "square" variable. Then run the
     // code and make sure it works.
 
-    let square = |x: i32| {x * x};
+    let square = |x: i32| x * x;
     println!("5 squared is {}", square(5));
 
     // 2. Uncomment the code below.  Finish the .map() iterator adaptor call by passing it a closure
@@ -39,9 +39,13 @@ fn main() {
     //
     // Hint: .to_uppercase() is a method on `str` which returns a String
 
-    // let words = vec!["autobot", "beach", "car", "decepticon", "energon", "frothy"];
-    // let transformed...  // do the stuff here
-    // println!("Transformed: {:?}", transformed);
+    let words = vec!["autobot", "beach", "car", "decepticon", "energon", "frothy"];
+    let transformed: Vec<_> = words
+        .into_iter()
+        .filter(|x| !x.contains("h"))
+        .map(|x| x.to_uppercase())
+        .collect();
+    println!("Transformed: {:?}", transformed);
 
     // Challenge:
     //
