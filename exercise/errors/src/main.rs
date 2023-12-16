@@ -11,20 +11,27 @@ use aquarium::Dolphin;
 // - Have the play_time function return a `Result<Vec<String>>`. The vector of Strings will
 //   represent successful outcomes of various dolphin tricks.
 
-// fn play_time(dolphin: &Dolphin) -> ... {
-//     let mut responses = vec![];
-//     // 2b. Call the .say_your_name() method on `dolphin`, use `?` to unwrap the value, and push
-//     // the value onto the `responses` vector.
-//     //
-//     // let response = ...    // this can be done with an intermediate variable...
-//     // responses.push( ... ) // ...or all on one line. Either way is fine!
-//     //
-//     // 2c. Do the same thing as #2b for the .flip() method
-//     //
-//     // 2d. Do the same thing as #2b for the .shake_hands() method
-//
-//     Ok(responses)
-// }
+use anyhow::Result;
+fn play_time(dolphin: &Dolphin) -> Result<Vec<String>> {
+    let mut responses = vec![];
+    // 2b. Call the .say_your_name() method on `dolphin`, use `?` to unwrap the value, and push
+    // the value onto the `responses` vector.
+    let name = dolphin.say_your_name()?;
+    responses.push(name);
+
+    // let response = ...    // this can be done with an intermediate variable...
+    // responses.push( ... ) // ...or all on one line. Either way is fine!
+    //
+    // 2c. Do the same thing as #2b for the .flip() method
+    let flipped = dolphin.flip()?;
+    responses.push(flipped);
+    //
+    // 2d. Do the same thing as #2b for the .shake_hands() method
+    let shaked_val = dolphin.shake_hands()?;
+    responses.push(shaked_val);
+
+    Ok(responses)
+}
 
 fn main() {
     let dolphins = vec![
